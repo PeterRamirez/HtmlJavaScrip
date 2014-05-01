@@ -1,0 +1,45 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Verificacion de cédula</title>
+</head>
+<body>
+<center>
+<h2>Verificación del último digito de la cédula</h2>
+<table border="2">
+<tr>
+	<td>
+  <input type="text" id="texvalidar" maxlength="9" placeholder="Ingrese nueve digitos" onkeypress="return soloNumeros(event)" >
+  </td>
+    <td>
+<center><input type="button" value="Verificar" onClick="validar()"></center>
+    </td>
+</table>
+</center>
+</body>
+</html>
+<script>
+  function validar()
+ {
+    var strdato=document.getElementById("texvalidar").value;
+    var acumulador=0;	
+	for(i=1;i<=9;i++)
+	{
+	  varactual=strdato.charAt(i-1);	
+	  if(i%2==0)
+	  acumulador+=parseFloat(varactual);
+	  else
+	  acumulador+= ((parseFloat(varactual)*2)>=10)?(parseFloat(varactual)*2)-9:(parseFloat(varactual)*2);
+	}
+	while (acumulador>0) acumulador-=10;
+	//alert(acumulador);
+	document.getElementById("texvalidar").value+=acumulador;
+ }
+ 
+ function soloNumeros(e) 
+{ 
+var key = window.Event ? e.which : e.keyCode 
+return ((key >= 48 && key <= 57) || (key==8)) 
+}
+</script> 
