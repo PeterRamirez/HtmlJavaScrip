@@ -1,0 +1,56 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Comprobación de números primos</title>
+</head>
+   
+<body>
+<center>
+<h2>Comprobación de números primos</h2>
+<table border="2">
+<tr>
+	<td>
+	<input type="text" id="txt1" name="txt1" onkeypress="return soloNumeros(event)"/>
+    </td>
+</tr>
+    <td>
+<center><input type="button" value="Comprobar" onclick="NumeroPrimo()"/></center>
+    </td>
+</tr>
+</table>
+</center>
+</body>
+</html>
+<script>
+function NumeroPrimo()
+{ 
+  var divisor = 2; 
+  var NumPrimo=document.getElementById("txt1").value; 
+  NumPrimo= parseInt(NumPrimo); 
+  
+  for (i=2;i<NumPrimo;i++)
+  { 
+	if (NumPrimo%i == 0)
+	{ 
+	divisor++; 
+	} 
+  } 
+  if (divisor == 2)
+  { 
+	  document.getElementById("txt1").value;
+	  alert("El número es primo"); 
+  } 
+  else
+  { 
+	  document.getElementById("txt1").value ;
+	  alert("El número no es primo"); 
+  } 
+}
+ 
+function soloNumeros(num) 
+{ 
+var key = window.Event ? num.which : num.keyCode 
+return ((key >= 48 && key <= 57) || (key==8)) 
+}
+</script>
